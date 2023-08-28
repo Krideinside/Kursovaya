@@ -11,10 +11,12 @@ public class DataHelper {
     private DataHelper() {
     }
 
-    public static AuthInfo getAuthInfoWithTestData() {
-        return new AuthInfo("vasya", "qwerty123");
+    public AuthInfo getValidAuthInfo() {
+        return new AuthInfo("1111222233334444", 12, 24, "Vasya Vasin", 123);
     }
 
+    private static String getRandomCardNumber() {return faker.finance().creditCard();
+    }
     private static String getRandomLogin() {
         return faker.name().username();
     }
@@ -23,22 +25,17 @@ public class DataHelper {
         return faker.internet().password();
     }
 
-    public static AuthInfo getRandomAuthInfo() {
-        return new AuthInfo(getRandomLogin(), getRandomPassword());
-    }
+//    public static AuthInfo getRandomAuthInfo() {
+//        return new AuthInfo(getRandomCardNumber(), 12, 24, getRandomLogin(), 123);
+//    }
 
-    public static VerificationCode getRandomVerificationCode() {
-        return new VerificationCode(faker.numerify("######"));
-    }
 
     @Value
-    public static class AuthInfo {
-        String login;
-        String password;
-    }
-
-    @Value
-    public static class VerificationCode {
-        String code;
+    public class AuthInfo {
+        String cardNumber;
+        int mounth;
+        int year;
+        String name;
+        int cvc;
     }
 }

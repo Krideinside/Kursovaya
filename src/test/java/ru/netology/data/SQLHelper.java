@@ -19,13 +19,13 @@ public class SQLHelper {
         return DriverManager.getConnection(System.getProperty("db.url"), "app", "pass");
     }
 
-    @SneakyThrows
-    public static DataHelper.VerificationCode getVerificationCode() {
-        var codeSQL = "SELECT code FROM auth_codes ORDER BY created DESC LIMIT 1";
-        var conn = getConn();
-        var code = runner.query(conn, codeSQL, new ScalarHandler<String>());
-        return new DataHelper.VerificationCode(code);
-        }
+//    @SneakyThrows
+//    public static DataHelper.VerificationCode getVerificationCode() {
+//        var codeSQL = "SELECT code FROM auth_codes ORDER BY created DESC LIMIT 1";
+//        var conn = getConn();
+//        var code = runner.query(conn, codeSQL, new ScalarHandler<String>());
+//        return new DataHelper.VerificationCode(code);
+//        }
 
     @SneakyThrows
     public static void cleanDatabase() {
