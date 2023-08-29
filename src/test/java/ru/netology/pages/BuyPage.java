@@ -4,7 +4,9 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.Keys;
+import ru.netology.data.DataHelper;
 
+import javax.activation.DataHandler;
 import javax.management.Notification;
 import java.time.Duration;
 
@@ -31,10 +33,21 @@ public class BuyPage {
     public void validBuy() {
         buttons.findBy(Condition.exactText("Купить")).click();
         cardNumberField.setValue("1111222233334444");
-        monthField.setValue("12");
-        yearField.setValue("24");
+        monthField.setValue(DataHelper.generateMonth(5));
+        yearField.setValue(DataHelper.generateYear(1));
         nameField.setValue("Vasya Vasin");
         cvcField.setValue("123");
+        continueButton.click();
+        sendToBank.shouldBe(visible);
+    }
+
+    public void validBuy2(DataHelper.AuthInfo info) {
+        buttons.findBy(Condition.exactText("Купить")).click();
+        cardNumberField.setValue(info.getCardNumber());
+        monthField.setValue(info.getMonth());
+        yearField.setValue(info.getYear());
+        nameField.setValue(info.getName());
+        cvcField.setValue(info.getCvc());
         continueButton.click();
         sendToBank.shouldBe(visible);
     }

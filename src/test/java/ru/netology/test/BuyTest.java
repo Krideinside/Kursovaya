@@ -3,6 +3,7 @@ package ru.netology.test;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import ru.netology.data.DataHelper;
 import ru.netology.pages.BuyPage;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -17,6 +18,14 @@ public class BuyTest {
         BuyPage buyPage = new BuyPage();
         buyPage.validBuy();
         buyPage.successNotification();
+    }
+
+    @Test
+    void shouldValidBuy2() {
+        open("http://localhost:8080");
+        BuyPage buyPage = new BuyPage();
+        var authUser = DataHelper.getValidAuthInfo();
+        buyPage.validBuy2(authUser);
     }
 
     @Test
