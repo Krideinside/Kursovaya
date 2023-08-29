@@ -79,5 +79,5 @@ public class BuyPage {
 //        nameField.sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
 //        cvcField.sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
 //        continueButton.shouldBe(visible, Duration.ofSeconds(15));
-    }
+//    }
 }
