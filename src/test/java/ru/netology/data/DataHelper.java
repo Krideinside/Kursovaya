@@ -33,9 +33,9 @@ public class DataHelper {
     @Value
     public class AuthInfo {
         String cardNumber;
-        int mounth;
-        int year;
+        String month;
+        String year;
         String name;
-        int cvc;
+        String cvc;
     }
 }
