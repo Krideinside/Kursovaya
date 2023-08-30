@@ -23,12 +23,12 @@ public class DataHelper {
     }
 
     public static AuthInfo getValidAuthInfo() {
-        return new AuthInfo("1111222233334444", String.valueOf(generateMonth(randomShift())), String.valueOf(generateYear(randomShift())),
+        return new AuthInfo("1111222233334444", String.valueOf(generateMonth(randomShift())), String.valueOf(generateYear(1)),
                 String.valueOf(getRandomName()), String.valueOf(getRandomCVC()));
     }
 
     public static AuthInfo getDeclineAuthInfo() {
-        return new AuthInfo("5555666677778888", generateMonth(randomShift()), generateYear(randomShift()), getRandomName(), getRandomCVC());
+        return new AuthInfo("5555666677778888", generateMonth(randomShift()), generateYear(1), getRandomName(), getRandomCVC());
     }
 
     public static AuthInfo getRandomAuthInfo() {
@@ -36,7 +36,7 @@ public class DataHelper {
     }
 
     public static int randomShift() {
-        return Integer.getInteger(faker.numerify("##"));
+        return Integer.parseInt(faker.numerify("#"));
     }
 
     public static String getRandomCardNumber() {

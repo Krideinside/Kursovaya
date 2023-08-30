@@ -26,6 +26,16 @@ public class BuyTest {
         BuyPage buyPage = new BuyPage();
         var authUser = DataHelper.getValidAuthInfo();
         buyPage.validBuy2(authUser);
+        buyPage.successNotification();
+    }
+
+    @Test
+    void shouldDeclineBuy2() {
+        open("http://localhost:8080");
+        BuyPage buyPage = new BuyPage();
+        var authUser = DataHelper.getDeclineAuthInfo();
+        buyPage.validBuy2(authUser);
+        buyPage.successNotification();
     }
 
     @Test
