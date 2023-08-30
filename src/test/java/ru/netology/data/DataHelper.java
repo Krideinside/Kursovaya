@@ -22,9 +22,8 @@ public class DataHelper {
         String cvc;
     }
 
-    public static AuthInfo getValidAuthInfo() {
-        return new AuthInfo("1111222233334444", String.valueOf(generateMonth(randomShift())), String.valueOf(generateYear(1)),
-                String.valueOf(getRandomName()), String.valueOf(getRandomCVC()));
+    public static AuthInfo getApproveAuthInfo() {
+        return new AuthInfo("1111222233334444", generateMonth(randomShift()), generateYear(1), getRandomName(), getRandomCVC());
     }
 
     public static AuthInfo getDeclineAuthInfo() {
@@ -32,7 +31,7 @@ public class DataHelper {
     }
 
     public static AuthInfo getRandomAuthInfo() {
-        return new AuthInfo(getRandomCardNumber(), generateMonth(randomShift()), generateYear(randomShift()), getRandomName(), getRandomCVC());
+        return new AuthInfo(getRandomCardNumber(), generateMonth(randomShift()), generateYear(1), getRandomName(), getRandomCVC());
     }
 
     public static int randomShift() {

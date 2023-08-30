@@ -13,36 +13,12 @@ import static ru.netology.data.SQLHelper.cleanDatabase;
 public class BuyTest {
 
     @Test
-    void shouldValidBuy() {
+    void shouldApproveBuy() {
         open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
-        buyPage.validBuy();
-        buyPage.successNotification();
-    }
-
-    @Test
-    void shouldValidBuy2() {
-        open("http://localhost:8080");
-        BuyPage buyPage = new BuyPage();
-        var authUser = DataHelper.getValidAuthInfo();
-        buyPage.validBuy2(authUser);
-        buyPage.successNotification();
-    }
-
-    @Test
-    void shouldDeclineBuy2() {
-        open("http://localhost:8080");
-        BuyPage buyPage = new BuyPage();
-        var authUser = DataHelper.getDeclineAuthInfo();
-        buyPage.validBuy2(authUser);
-        buyPage.successNotification();
-    }
-
-    @Test
-    void shouldValidCreditBuy() {
-        open("http://localhost:8080");
-        BuyPage buyPage = new BuyPage();
-        buyPage.validCreditBuy();
+        buyPage.changeSimpleBuy();
+        var authUser = DataHelper.getApproveAuthInfo();
+        buyPage.fillForm(authUser);
         buyPage.successNotification();
     }
 
@@ -50,7 +26,19 @@ public class BuyTest {
     void shouldDeclineBuy() {
         open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
-        buyPage.declineBuy();
+        buyPage.changeSimpleBuy();
+        var authUser = DataHelper.getDeclineAuthInfo();
+        buyPage.fillForm(authUser);
+        buyPage.successNotification();
+    }
+
+    @Test
+    void shouldApproveCreditBuy() {
+        open("http://localhost:8080");
+        BuyPage buyPage = new BuyPage();
+        buyPage.changeCreditBuy();
+        var authUser = DataHelper.getApproveAuthInfo();
+        buyPage.fillForm(authUser);
         buyPage.successNotification();
     }
 
@@ -58,7 +46,19 @@ public class BuyTest {
     void shouldDeclineCreditBuy() {
         open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
-        buyPage.declineCreditBuy();
+        buyPage.changeCreditBuy();
+        var authUser = DataHelper.getDeclineAuthInfo();
+        buyPage.fillForm(authUser);
         buyPage.successNotification();
+    }
+
+    @Test
+    void shouldRandomBuy() {
+        open("http://localhost:8080");
+        BuyPage buyPage = new BuyPage();
+        buyPage.changeSimpleBuy();
+        var authUser = DataHelper.getRandomAuthInfo();
+        buyPage.fillForm(authUser);
+        buyPage.errorNotification();
     }
 }

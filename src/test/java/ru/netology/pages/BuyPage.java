@@ -24,25 +24,19 @@ public class BuyPage {
     private final SelenideElement sendToBank = buttons.findBy(exactText("Отправляем запрос в Банк..."));
     private final SelenideElement notificationTitle = $("[class=notification__title]");
     private final SelenideElement notificationContent = $("[class=notification__content]");
+    private final SelenideElement errorNotificationTitle = $("[class=notification__title]");
+    private final SelenideElement errorNotificationContent = $("[class=notification__content]");
 
-    public void successNotification() {
-        notificationTitle.shouldHave(exactText("Успешно"), Duration.ofSeconds(15));
-        notificationContent.shouldHave(exactText("Операция одобрена Банком."));
+
+    public void changeSimpleBuy() {
+        buttons.findBy(Condition.exactText("Купить")).click();
     }
 
-    public void validBuy() {
-        buttons.findBy(Condition.exactText("Купить")).click();
-        cardNumberField.setValue("1111222233334444");
-        monthField.setValue(DataHelper.generateMonth(5));
-        yearField.setValue(DataHelper.generateYear(1));
-        nameField.setValue("Vasya Vasin");
-        cvcField.setValue("123");
-        continueButton.click();
-        sendToBank.shouldBe(visible);
+    public void changeCreditBuy() {
+        buttons.findBy(Condition.exactText("Купить в кредит")).click();
     }
 
-    public void validBuy2(DataHelper.AuthInfo info) {
-        buttons.findBy(Condition.exactText("Купить")).click();
+    public void fillForm(DataHelper.AuthInfo info) {
         cardNumberField.setValue(info.getCardNumber());
         monthField.setValue(info.getMonth());
         yearField.setValue(info.getYear());
@@ -52,45 +46,13 @@ public class BuyPage {
         sendToBank.shouldBe(visible);
     }
 
-    public void validCreditBuy() {
-        buttons.findBy(Condition.exactText("Купить в кредит")).click();
-        cardNumberField.setValue("1111222233334444");
-        monthField.setValue("12");
-        yearField.setValue("24");
-        nameField.setValue("Vasya Vasin");
-        cvcField.setValue("123");
-        continueButton.click();
-        sendToBank.shouldBe(visible);
+    public void successNotification() {
+        notificationTitle.shouldHave(exactText("Успешно"), Duration.ofSeconds(15));
+        notificationContent.shouldHave(exactText("Операция одобрена Банком."));
     }
 
-    public void declineBuy() {
-        buttons.findBy(Condition.exactText("Купить")).click();
-        cardNumberField.setValue("5555666677778888");
-        monthField.setValue("12");
-        yearField.setValue("24");
-        nameField.setValue("Vasya Vasin");
-        cvcField.setValue("123");
-        continueButton.click();
-        sendToBank.shouldBe(visible);
+    public void errorNotification() {
+        notificationTitle.shouldHave(exactText("Ошибка"), Duration.ofSeconds(15));
+        notificationContent.shouldHave(exactText("Ошибка! Банк отказал в проведении операции."));
     }
-
-    public void declineCreditBuy() {
-        buttons.findBy(Condition.exactText("Купить в кредит")).click();
-        cardNumberField.setValue("5555666677778888");
-        monthField.setValue("12");
-        yearField.setValue("24");
-        nameField.setValue("Vasya Vasin");
-        cvcField.setValue("123");
-        continueButton.click();
-        sendToBank.shouldBe(visible);
-    }
-
-//    public void clean() {
-//        cardNumberField.sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-//        monthField.sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-//        yearField.sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-//        nameField.sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-//        cvcField.sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-//        continueButton.shouldBe(visible, Duration.ofSeconds(15));
-//    }
 }
