@@ -5,11 +5,9 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.Keys;
 import ru.netology.data.DataHelper;
-
 import javax.activation.DataHandler;
 import javax.management.Notification;
 import java.time.Duration;
-
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -26,15 +24,27 @@ public class BuyPage {
     private final SelenideElement notificationContent = $("[class=notification__content]");
     private final SelenideElement errorNotificationTitle = $("[class=notification__title]");
     private final SelenideElement errorNotificationContent = $("[class=notification__content]");
-
+    private final SelenideElement errorFill = $("[class=input__inner]");
 
     public void changeSimpleBuy() {
         buttons.findBy(Condition.exactText("Купить")).click();
     }
-
     public void changeCreditBuy() {
         buttons.findBy(Condition.exactText("Купить в кредит")).click();
     }
+
+    public void setCardNumber(String number) { cardNumberField.setValue(number); }
+    public void setMonth(String month) { monthField.setValue(month); }
+    public void setYear(String year) { yearField.setValue(year); }
+    public void setName(String name) { nameField.setValue(name); }
+    public void setCVC(String cvc) { cvcField.setValue(cvc); }
+
+    public void pushContinue() { continueButton.click(); }
+
+    public void notifErrorFormat() { errorFill.shouldHave(text("Неверный формат")); }
+    public void notifErrorDate() { errorFill.shouldHave(text("Неверно указан срок действия карты")); }
+    public void notifExpiredDate() { errorFill.shouldHave(text("Истёк срок действия карты")); }
+    public void notifEmptyField() { errorFill.shouldHave(text("Поле обязательно для заполнения")); }
 
     public void fillForm(DataHelper.AuthInfo info) {
         cardNumberField.setValue(info.getCardNumber());
@@ -52,7 +62,7 @@ public class BuyPage {
     }
 
     public void errorNotification() {
-        notificationTitle.shouldHave(exactText("Ошибка"), Duration.ofSeconds(15));
-        notificationContent.shouldHave(exactText("Ошибка! Банк отказал в проведении операции."));
+        errorNotificationTitle.shouldHave(exactText("Ошибка"));
+        errorNotificationContent.shouldHave(exactText("Ошибка! Банк отказал в проведении операции."));
     }
 }
