@@ -1,18 +1,13 @@
 package ru.netology.test;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import ru.netology.data.DataHelper;
 import ru.netology.pages.BuyPage;
-
 import static com.codeborne.selenide.Selenide.open;
-import static ru.netology.data.SQLHelper.cleanDatabase;
-
 
 public class BuyTest {
 
-    ///////////////////////////  POSITIVE  ///////////////////////////////
+    /////////////////////////// POSITIVE BUY ///////////////////////////////
 
     @Test
     void shouldApproveBuy() {
@@ -54,8 +49,6 @@ public class BuyTest {
         buyPage.successNotification();
     }
 
-    ///////////////////////////  NEGATIVE SIMPLE BUY ///////////////////////////////
-
     @Test
     void shouldRandomBuy() {
         open("http://localhost:8080");
@@ -63,8 +56,10 @@ public class BuyTest {
         buyPage.changeSimpleBuy();
         var authUser = DataHelper.getRandomAuthInfo();
         buyPage.fillForm(authUser);
-        buyPage.errorNotification();
+        buyPage.successNotification();
     }
+
+    ///////////////////////////  NEGATIVE SIMPLE BUY ///////////////////////////////
 
     @Test
     void testNegativeCard() {
@@ -85,6 +80,7 @@ public class BuyTest {
         open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
+        buyPage.setCardNumber(" ");
         buyPage.setMonth("12");
         buyPage.setYear("24");
         buyPage.setName(DataHelper.getRandomName());
@@ -129,7 +125,7 @@ public class BuyTest {
         buyPage.setYear("24");
         buyPage.setCVC("123");
         buyPage.pushContinue();
-        buyPage.notifErrorFormat();
+        buyPage.notifEmptyField();
     }
 
     @Test

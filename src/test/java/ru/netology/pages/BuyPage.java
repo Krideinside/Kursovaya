@@ -22,9 +22,8 @@ public class BuyPage {
     private final SelenideElement sendToBank = buttons.findBy(exactText("Отправляем запрос в Банк..."));
     private final SelenideElement notificationTitle = $("[class=notification__title]");
     private final SelenideElement notificationContent = $("[class=notification__content]");
-    private final SelenideElement errorNotificationTitle = $("[class=notification__title]");
-    private final SelenideElement errorNotificationContent = $("[class=notification__content]");
-    private final SelenideElement errorFill = $("[class=input__inner]");
+
+    public ElementsCollection errorFill = $$("[class=input__inner]");
 
     public void changeSimpleBuy() {
         buttons.findBy(Condition.exactText("Купить")).click();
@@ -41,10 +40,10 @@ public class BuyPage {
 
     public void pushContinue() { continueButton.click(); }
 
-    public void notifErrorFormat() { errorFill.shouldHave(text("Неверный формат")); }
-    public void notifErrorDate() { errorFill.shouldHave(text("Неверно указан срок действия карты")); }
-    public void notifExpiredDate() { errorFill.shouldHave(text("Истёк срок действия карты")); }
-    public void notifEmptyField() { errorFill.shouldHave(text("Поле обязательно для заполнения")); }
+    public void notifErrorFormat() { errorFill.findBy(text("Неверный формат")); }
+    public void notifErrorDate() { errorFill.findBy(text("Неверно указан срок действия карты")); }
+    public void notifExpiredDate() { errorFill.findBy(text("Истёк срок действия карты")); }
+    public void notifEmptyField() { errorFill.findBy(text("Поле обязательно для заполнения")); }
 
     public void fillForm(DataHelper.AuthInfo info) {
         cardNumberField.setValue(info.getCardNumber());
@@ -62,7 +61,7 @@ public class BuyPage {
     }
 
     public void errorNotification() {
-        errorNotificationTitle.shouldHave(exactText("Ошибка"));
-        errorNotificationContent.shouldHave(exactText("Ошибка! Банк отказал в проведении операции."));
+        notificationTitle.shouldHave(exactText("Ошибка"));
+        notificationContent.shouldHave(exactText("Ошибка! Банк отказал в проведении операции."));
     }
 }
