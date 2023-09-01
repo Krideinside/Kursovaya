@@ -102,7 +102,7 @@ public class BuyTest {
     void testEmptyMonth() {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
-        buyPage.setCardNumber("1111222233334444");
+        buyPage.setCardNumber(DataHelper.getApprovedCardNumber());
         buyPage.setYear(DataHelper.generateYear(1));
         buyPage.setName(DataHelper.getRandomName());
         buyPage.setCVC(DataHelper.getRandomCVC());
@@ -114,7 +114,7 @@ public class BuyTest {
     void testEmptyYear() {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
-        buyPage.setCardNumber("1111222233334444");
+        buyPage.setCardNumber(DataHelper.getApprovedCardNumber());
         buyPage.setMonth(DataHelper.generateMonth(1));
         buyPage.setName(DataHelper.getRandomName());
         buyPage.setCVC(DataHelper.getRandomCVC());
@@ -126,7 +126,7 @@ public class BuyTest {
     void testEmptyName() {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
-        buyPage.setCardNumber("1111222233334444");
+        buyPage.setCardNumber(DataHelper.getApprovedCardNumber());
         buyPage.setMonth(DataHelper.generateMonth(1));
         buyPage.setYear(DataHelper.generateYear(1));
         buyPage.setCVC(DataHelper.getRandomCVC());
@@ -138,7 +138,7 @@ public class BuyTest {
     void testEmptyCVC() {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
-        buyPage.setCardNumber("1111222233334444");
+        buyPage.setCardNumber(DataHelper.getApprovedCardNumber());
         buyPage.setMonth(DataHelper.generateMonth(1));
         buyPage.setYear(DataHelper.generateYear(1));
         buyPage.setName(DataHelper.getRandomName());
@@ -163,7 +163,7 @@ public class BuyTest {
     void testExcessMonth() {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
-        buyPage.setCardNumber("1111222233334444");
+        buyPage.setCardNumber(DataHelper.getApprovedCardNumber());
         buyPage.setMonth("13");
         buyPage.setYear(DataHelper.generateYear(1));
         buyPage.setName(DataHelper.getRandomName());
@@ -176,7 +176,7 @@ public class BuyTest {
     void testExcessYear() {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
-        buyPage.setCardNumber("1111222233334444");
+        buyPage.setCardNumber(DataHelper.getApprovedCardNumber());
         buyPage.setMonth(DataHelper.generateMonth(1));
         buyPage.setYear("28");
         buyPage.setName(DataHelper.getRandomName());
@@ -189,7 +189,7 @@ public class BuyTest {
     void testZeroMonth() {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
-        buyPage.setCardNumber("1111222233334444");
+        buyPage.setCardNumber(DataHelper.getApprovedCardNumber());
         buyPage.setMonth("0");
         buyPage.setYear(DataHelper.generateYear(1));
         buyPage.setName(DataHelper.getRandomName());
@@ -202,7 +202,7 @@ public class BuyTest {
     void testZeroYear() {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
-        buyPage.setCardNumber("1111222233334444");
+        buyPage.setCardNumber(DataHelper.getApprovedCardNumber());
         buyPage.setMonth(DataHelper.generateMonth(1));
         buyPage.setYear("0");
         buyPage.setName(DataHelper.getRandomName());
@@ -215,7 +215,7 @@ public class BuyTest {
     void testPastYear() {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
-        buyPage.setCardNumber("1111222233334444");
+        buyPage.setCardNumber(DataHelper.getApprovedCardNumber());
         buyPage.setMonth(DataHelper.generateMonth(1));
         buyPage.setYear("22");
         buyPage.setName(DataHelper.getRandomName());
@@ -228,7 +228,7 @@ public class BuyTest {
     void testKirName() {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
-        buyPage.setCardNumber("1111222233334444");
+        buyPage.setCardNumber(DataHelper.getApprovedCardNumber());
         buyPage.setMonth(DataHelper.generateMonth(1));
         buyPage.setYear(DataHelper.generateYear(1));
         buyPage.setName("фыв");
@@ -241,7 +241,7 @@ public class BuyTest {
     void testShortName() {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
-        buyPage.setCardNumber("1111222233334444");
+        buyPage.setCardNumber(DataHelper.getApprovedCardNumber());
         buyPage.setMonth(DataHelper.generateMonth(1));
         buyPage.setYear(DataHelper.generateYear(1));
         buyPage.setName("v");
@@ -254,7 +254,7 @@ public class BuyTest {
     void testNumberName() {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
-        buyPage.setCardNumber("1111222233334444");
+        buyPage.setCardNumber(DataHelper.getApprovedCardNumber());
         buyPage.setMonth(DataHelper.generateMonth(1));
         buyPage.setYear(DataHelper.generateYear(1));
         buyPage.setName("123");
@@ -267,7 +267,7 @@ public class BuyTest {
     void testSymbolName() {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
-        buyPage.setCardNumber("1111222233334444");
+        buyPage.setCardNumber(DataHelper.getApprovedCardNumber());
         buyPage.setMonth(DataHelper.generateMonth(1));
         buyPage.setYear(DataHelper.generateYear(1));
         buyPage.setName(".*/");
@@ -280,7 +280,7 @@ public class BuyTest {
     void testZeroCVC() {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
-        buyPage.setCardNumber("1111222233334444");
+        buyPage.setCardNumber(DataHelper.getApprovedCardNumber());
         buyPage.setMonth(DataHelper.generateMonth(1));
         buyPage.setYear(DataHelper.generateYear(1));
         buyPage.setName(DataHelper.getRandomName());
