@@ -77,10 +77,10 @@ public class BuyTest {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1234123412341234");
-        buyPage.setMonth("12");
-        buyPage.setYear("24");
+        buyPage.setMonth(DataHelper.generateMonth(1));
+        buyPage.setYear(DataHelper.generateYear(1));
         buyPage.setName(DataHelper.getRandomName());
-        buyPage.setCVC("123");
+        buyPage.setCVC(DataHelper.getRandomCVC());
         buyPage.pushContinue();
         buyPage.notifErrorFormat();
     }
@@ -90,10 +90,10 @@ public class BuyTest {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber(" ");
-        buyPage.setMonth("12");
-        buyPage.setYear("24");
+        buyPage.setMonth(DataHelper.generateMonth(1));
+        buyPage.setYear(DataHelper.generateYear(1));
         buyPage.setName(DataHelper.getRandomName());
-        buyPage.setCVC("123");
+        buyPage.setCVC(DataHelper.getRandomCVC());
         buyPage.pushContinue();
         buyPage.notifErrorFormat();
     }
@@ -103,9 +103,9 @@ public class BuyTest {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
-        buyPage.setYear("24");
+        buyPage.setYear(DataHelper.generateYear(1));
         buyPage.setName(DataHelper.getRandomName());
-        buyPage.setCVC("123");
+        buyPage.setCVC(DataHelper.getRandomCVC());
         buyPage.pushContinue();
         buyPage.notifErrorFormat();
     }
@@ -115,9 +115,9 @@ public class BuyTest {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
-        buyPage.setMonth("12");
+        buyPage.setMonth(DataHelper.generateMonth(1));
         buyPage.setName(DataHelper.getRandomName());
-        buyPage.setCVC("123");
+        buyPage.setCVC(DataHelper.getRandomCVC());
         buyPage.pushContinue();
         buyPage.notifErrorFormat();
     }
@@ -127,9 +127,9 @@ public class BuyTest {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
-        buyPage.setMonth("12");
-        buyPage.setYear("24");
-        buyPage.setCVC("123");
+        buyPage.setMonth(DataHelper.generateMonth(1));
+        buyPage.setYear(DataHelper.generateYear(1));
+        buyPage.setCVC(DataHelper.getRandomCVC());
         buyPage.pushContinue();
         buyPage.notifEmptyField();
     }
@@ -139,8 +139,8 @@ public class BuyTest {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
-        buyPage.setMonth("12");
-        buyPage.setYear("24");
+        buyPage.setMonth(DataHelper.generateMonth(1));
+        buyPage.setYear(DataHelper.generateYear(1));
         buyPage.setName(DataHelper.getRandomName());
         buyPage.pushContinue();
         buyPage.notifErrorFormat();
@@ -151,10 +151,10 @@ public class BuyTest {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("12313");
-        buyPage.setMonth("12");
-        buyPage.setYear("24");
+        buyPage.setMonth(DataHelper.generateMonth(1));
+        buyPage.setYear(DataHelper.generateYear(1));
         buyPage.setName(DataHelper.getRandomName());
-        buyPage.setCVC("123");
+        buyPage.setCVC(DataHelper.getRandomCVC());
         buyPage.pushContinue();
         buyPage.notifErrorFormat();
     }
@@ -165,9 +165,9 @@ public class BuyTest {
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
         buyPage.setMonth("13");
-        buyPage.setYear("24");
+        buyPage.setYear(DataHelper.generateYear(1));
         buyPage.setName(DataHelper.getRandomName());
-        buyPage.setCVC("123");
+        buyPage.setCVC(DataHelper.getRandomCVC());
         buyPage.pushContinue();
         buyPage.notifErrorDate();
     }
@@ -177,10 +177,10 @@ public class BuyTest {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
-        buyPage.setMonth("12");
+        buyPage.setMonth(DataHelper.generateMonth(1));
         buyPage.setYear("28");
         buyPage.setName(DataHelper.getRandomName());
-        buyPage.setCVC("123");
+        buyPage.setCVC(DataHelper.getRandomCVC());
         buyPage.pushContinue();
         buyPage.notifErrorDate();
     }
@@ -191,9 +191,9 @@ public class BuyTest {
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
         buyPage.setMonth("0");
-        buyPage.setYear("24");
+        buyPage.setYear(DataHelper.generateYear(1));
         buyPage.setName(DataHelper.getRandomName());
-        buyPage.setCVC("123");
+        buyPage.setCVC(DataHelper.getRandomCVC());
         buyPage.pushContinue();
         buyPage.notifErrorFormat();
     }
@@ -203,10 +203,10 @@ public class BuyTest {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
-        buyPage.setMonth("10");
+        buyPage.setMonth(DataHelper.generateMonth(1));
         buyPage.setYear("0");
         buyPage.setName(DataHelper.getRandomName());
-        buyPage.setCVC("123");
+        buyPage.setCVC(DataHelper.getRandomCVC());
         buyPage.pushContinue();
         buyPage.notifErrorFormat();
     }
@@ -216,10 +216,10 @@ public class BuyTest {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
-        buyPage.setMonth("10");
+        buyPage.setMonth(DataHelper.generateMonth(1));
         buyPage.setYear("22");
         buyPage.setName(DataHelper.getRandomName());
-        buyPage.setCVC("123");
+        buyPage.setCVC(DataHelper.getRandomCVC());
         buyPage.pushContinue();
         buyPage.notifExpiredDate();
     }
@@ -229,10 +229,10 @@ public class BuyTest {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
-        buyPage.setMonth("10");
-        buyPage.setYear("24");
+        buyPage.setMonth(DataHelper.generateMonth(1));
+        buyPage.setYear(DataHelper.generateYear(1));
         buyPage.setName("фыв");
-        buyPage.setCVC("123");
+        buyPage.setCVC(DataHelper.getRandomCVC());
         buyPage.pushContinue();
         buyPage.notifErrorFormat();
     }
@@ -242,10 +242,10 @@ public class BuyTest {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
-        buyPage.setMonth("10");
-        buyPage.setYear("24");
+        buyPage.setMonth(DataHelper.generateMonth(1));
+        buyPage.setYear(DataHelper.generateYear(1));
         buyPage.setName("v");
-        buyPage.setCVC("123");
+        buyPage.setCVC(DataHelper.getRandomCVC());
         buyPage.pushContinue();
         buyPage.notifErrorFormat();
     }
@@ -255,10 +255,10 @@ public class BuyTest {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
-        buyPage.setMonth("10");
-        buyPage.setYear("24");
+        buyPage.setMonth(DataHelper.generateMonth(1));
+        buyPage.setYear(DataHelper.generateYear(1));
         buyPage.setName("123");
-        buyPage.setCVC("123");
+        buyPage.setCVC(DataHelper.getRandomCVC());
         buyPage.pushContinue();
         buyPage.notifErrorFormat();
     }
@@ -268,10 +268,10 @@ public class BuyTest {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
-        buyPage.setMonth("10");
-        buyPage.setYear("24");
+        buyPage.setMonth(DataHelper.generateMonth(1));
+        buyPage.setYear(DataHelper.generateYear(1));
         buyPage.setName(".*/");
-        buyPage.setCVC("123");
+        buyPage.setCVC(DataHelper.getRandomCVC());
         buyPage.pushContinue();
         buyPage.notifErrorFormat();
     }
@@ -281,8 +281,8 @@ public class BuyTest {
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
-        buyPage.setMonth("10");
-        buyPage.setYear("24");
+        buyPage.setMonth(DataHelper.generateMonth(1));
+        buyPage.setYear(DataHelper.generateYear(1));
         buyPage.setName(DataHelper.getRandomName());
         buyPage.setCVC("0");
         buyPage.pushContinue();
