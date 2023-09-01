@@ -1,5 +1,10 @@
 package ru.netology.test;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.data.DataHelper;
 import ru.netology.pages.BuyPage;
@@ -7,11 +12,21 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class BuyTest {
 
+    @BeforeAll
+    static void setUpAll() { SelenideLogger.addListener("allure", new AllureSelenide()); }
+
+    @BeforeEach
+    void setup() {
+        open("http://localhost:8080");
+    }
+
+    @AfterAll
+    static void tearDownAll() { SelenideLogger.removeListener("allure"); }
+
     /////////////////////////// POSITIVE BUY ///////////////////////////////
 
     @Test
     void shouldApproveBuy() {
-        open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         var authUser = DataHelper.getApproveAuthInfo();
@@ -21,7 +36,6 @@ public class BuyTest {
 
     @Test
     void shouldDeclineBuy() {
-        open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         var authUser = DataHelper.getDeclineAuthInfo();
@@ -31,7 +45,6 @@ public class BuyTest {
 
     @Test
     void shouldApproveCreditBuy() {
-        open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
         buyPage.changeCreditBuy();
         var authUser = DataHelper.getApproveAuthInfo();
@@ -41,7 +54,6 @@ public class BuyTest {
 
     @Test
     void shouldDeclineCreditBuy() {
-        open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
         buyPage.changeCreditBuy();
         var authUser = DataHelper.getDeclineAuthInfo();
@@ -51,7 +63,6 @@ public class BuyTest {
 
     @Test
     void shouldRandomBuy() {
-        open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         var authUser = DataHelper.getRandomAuthInfo();
@@ -63,7 +74,6 @@ public class BuyTest {
 
     @Test
     void testNegativeCard() {
-        open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1234123412341234");
@@ -77,7 +87,6 @@ public class BuyTest {
 
     @Test
     void testEmptyCard() {
-        open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber(" ");
@@ -91,7 +100,6 @@ public class BuyTest {
 
     @Test
     void testEmptyMonth() {
-        open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
@@ -104,7 +112,6 @@ public class BuyTest {
 
     @Test
     void testEmptyYear() {
-        open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
@@ -117,7 +124,6 @@ public class BuyTest {
 
     @Test
     void testEmptyName() {
-        open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
@@ -130,7 +136,6 @@ public class BuyTest {
 
     @Test
     void testEmptyCVC() {
-        open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
@@ -143,7 +148,6 @@ public class BuyTest {
 
     @Test
     void testShortCard() {
-        open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("12313");
@@ -157,7 +161,6 @@ public class BuyTest {
 
     @Test
     void testExcessMonth() {
-        open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
@@ -171,7 +174,6 @@ public class BuyTest {
 
     @Test
     void testExcessYear() {
-        open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
@@ -185,7 +187,6 @@ public class BuyTest {
 
     @Test
     void testZeroMonth() {
-        open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
@@ -199,7 +200,6 @@ public class BuyTest {
 
     @Test
     void testZeroYear() {
-        open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
@@ -213,7 +213,6 @@ public class BuyTest {
 
     @Test
     void testPastYear() {
-        open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
@@ -227,7 +226,6 @@ public class BuyTest {
 
     @Test
     void testKirName() {
-        open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
@@ -241,7 +239,6 @@ public class BuyTest {
 
     @Test
     void testShortName() {
-        open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
@@ -255,7 +252,6 @@ public class BuyTest {
 
     @Test
     void testNumberName() {
-        open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
@@ -269,7 +265,6 @@ public class BuyTest {
 
     @Test
     void testSymbolName() {
-        open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");
@@ -283,7 +278,6 @@ public class BuyTest {
 
     @Test
     void testZeroCVC() {
-        open("http://localhost:8080");
         BuyPage buyPage = new BuyPage();
         buyPage.changeSimpleBuy();
         buyPage.setCardNumber("1111222233334444");

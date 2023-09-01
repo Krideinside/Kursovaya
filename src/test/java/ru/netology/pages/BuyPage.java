@@ -10,6 +10,12 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class BuyPage {
     public ElementsCollection buttons = $$("[type='button']");
+//    public ElementsCollection field = $$("[input__top]");
+//    private final SelenideElement cardNumberField = field.findBy(text("Номер карты"));
+//    private final SelenideElement monthField = field.findBy(text("Месяц"));
+//    private final SelenideElement yearField = field.findBy(text("Год"));
+//    private final SelenideElement nameField = field.findBy(text("Владелец"));
+//    private final SelenideElement cvcField = field.findBy(text("CVC/CVV"));
     private final SelenideElement cardNumberField = $("[placeholder='0000 0000 0000 0000']");
     private final SelenideElement monthField = $("[wfd-id=id1]");
     private final SelenideElement yearField = $("[wfd-id=id2]");

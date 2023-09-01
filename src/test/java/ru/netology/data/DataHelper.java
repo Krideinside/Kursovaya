@@ -43,7 +43,7 @@ public class DataHelper {
         return new AuthInfo(getDeclineCardNumber(), generateMonth(randomShift()), generateYear(1), getRandomName(), getRandomCVC());
     }
     public static AuthInfo getRandomAuthInfo() {
-        return new AuthInfo(getRandomCardNumber(), generateMonth(randomShift()), generateYear(1), getRandomName(), getRandomCVC());
+        return new AuthInfo("1234123412341234", generateMonth(randomShift()), generateYear(1), getRandomName(), getRandomCVC());
     }
 
     public static int randomShift() {
